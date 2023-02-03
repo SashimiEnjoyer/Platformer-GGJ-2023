@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,9 +8,11 @@ public class SeasonManager : MonoBehaviour
 {
     public static SeasonManager instance;
     public TMP_Text testtimer;
+    public TMP_Text seasonText;
     
     private Season _season;
     private float seasonTimer;
+    public float timerMultiplier = 1;
     [SerializeField] private float seasonCooldown;
     public UnityAction<Season> onSeasonChange;
     public Season season
@@ -40,12 +41,36 @@ public class SeasonManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void OnEnable()
+    {
+        onSeasonChange += ChangeSeasonUI;
+    }
+
+    private void OnDisable()
+    {
+        onSeasonChange -= ChangeSeasonUI;
+    }
+
     public void Update()
     {
-        seasonTimer += Time.deltaTime;
+        seasonTimer += (Time.deltaTime * timerMultiplier);
         seasonTimer %= seasonCooldown;
 
         testtimer.text = seasonTimer.ToString();
 
+
+        if (seasonTimer > 0 && seasonTimer < 3)
+            onSeasonChange?.Invoke(Season.Winter);
+        else if (seasonTimer > 3 && seasonTimer < 6)
+            onSeasonChange?.Invoke(Season.Spring);
+        if (seasonTimer > 6 && seasonTimer < 9)
+            onSeasonChange?.Invoke(Season.Summer);
+        if (seasonTimer > 9 && seasonTimer < 12)
+            onSeasonChange?.Invoke(Season.Autumn);
+    }
+
+    void ChangeSeasonUI(Season season)
+    {
+        seasonText.text = season.ToString();
     }
 }
