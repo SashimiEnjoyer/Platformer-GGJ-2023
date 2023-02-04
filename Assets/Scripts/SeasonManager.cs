@@ -6,11 +6,14 @@ using UnityEngine.Events;
 [Serializable]
 public enum Season { Winter, Spring, Summer, Autumn}
 
+
 public class SeasonManager : MonoBehaviour
 {
     public static SeasonManager instance;
     public TMP_Text testtimer;
     public TMP_Text seasonText;
+
+    [SerializeField] private GameObject[] tilemaps;
     
     [SerializeField]private Season _season;
     private float seasonTimer;
@@ -46,11 +49,13 @@ public class SeasonManager : MonoBehaviour
 
     private void OnEnable()
     {
+        onSeasonChange += ChangeTilemaps;
         onSeasonChange += ChangeSeasonUI;
     }
 
     private void OnDisable()
     {
+        onSeasonChange -= ChangeTilemaps;
         onSeasonChange -= ChangeSeasonUI;
     }
 
@@ -75,7 +80,7 @@ public class SeasonManager : MonoBehaviour
         seasonTimer += (Time.deltaTime * timerMultiplier);
         seasonTimer %= seasonCooldown;
 
-        testtimer.text = seasonTimer.ToString();
+        testtimer.text = seasonTimer.ToString("f2");
 
 
     }
@@ -86,9 +91,13 @@ public class SeasonManager : MonoBehaviour
     }
 
     [ContextMenu("Test Change Season")]
-    public void ChangeSeason()
+    public void ChangeTilemaps(Season season)
     {
-        season = Season.Summer;
+        foreach (var tilemap in tilemaps)
+        {
+            tilemap.SetActive(false);
+        }
 
+        tilemaps[(int)season].SetActive(true);
     }
 }
