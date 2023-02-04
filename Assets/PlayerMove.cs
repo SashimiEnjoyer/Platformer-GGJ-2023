@@ -116,7 +116,7 @@ public class PlayerMove : MonoBehaviour
 
         switch (season)
         {
-            case 1: //Winter
+            case 1: //Winter//
                 break;
             case 2://Spring
                 break;
