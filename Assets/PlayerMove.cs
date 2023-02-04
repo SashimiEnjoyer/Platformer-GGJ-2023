@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
 
-    private void OnEnable()
+    private void Start()
     {
         SeasonManager.instance.onSeasonChange += ChangeSeason;
     }
@@ -54,30 +54,30 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("f"))
-        {
-            season = 1;
-            transform.localScale = new Vector3(0.6f, 0.6f, 0);
-            seasonTxt.text = season.ToString("F0");
-        }
-        if (Input.GetKeyDown("g"))
-        {
-            season = 2;
-            transform.localScale = new Vector3(1f, 1f, 0);
-            seasonTxt.text = season.ToString("F0");
-        }
-        if (Input.GetKeyDown("h"))
-        {
-            season = 3;
-            transform.localScale = new Vector3(2f, 2f, 0);
-            seasonTxt.text = season.ToString("F0");
-        }
-        if (Input.GetKeyDown("j"))
-        {
-            season = 4;
-            transform.localScale = new Vector3(1f, 1f, 0);
-            seasonTxt.text = season.ToString("F0");
-        }
+        //if (Input.GetKeyDown("f"))
+        //{
+        //    season = 1;
+        //    transform.localScale = new Vector3(0.6f, 0.6f, 0);
+        //    seasonTxt.text = season.ToString("F0");
+        //}
+        //if (Input.GetKeyDown("g"))
+        //{
+        //    season = 2;
+        //    transform.localScale = new Vector3(1f, 1f, 0);
+        //    seasonTxt.text = season.ToString("F0");
+        //}
+        //if (Input.GetKeyDown("h"))
+        //{
+        //    season = 3;
+        //    transform.localScale = new Vector3(2f, 2f, 0);
+        //    seasonTxt.text = season.ToString("F0");
+        //}
+        //if (Input.GetKeyDown("j"))
+        //{
+        //    season = 4;
+        //    transform.localScale = new Vector3(1f, 1f, 0);
+        //    seasonTxt.text = season.ToString("F0");
+        //}
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
@@ -116,13 +116,19 @@ public class PlayerMove : MonoBehaviour
 
         switch (season)
         {
-            case 1: //Winter
+            case 0: //Winter
+                season = 2;
+                transform.localScale = new Vector3(1f, 1f, 0);
                 break;
-            case 2://Spring
+            case 1://Spring
+                transform.localScale = new Vector3(2f, 2f, 0);
                 break;
-            case 3://Summer
+            case 2://Summer
+                season = 2;
+                transform.localScale = new Vector3(1f, 1f, 0);
                 break;
-            case 4://Fall
+            case 3://Fall
+                transform.localScale = new Vector3(0.6f, 0.6f, 0);
                 break;
             default:
                 break;
