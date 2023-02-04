@@ -20,6 +20,16 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Animator animator;
 
+    private void OnEnable()
+    {
+        SeasonManager.instance.onSeasonChange += ChangeSeason;
+    }
+
+    private void OnDisable()
+    {
+        SeasonManager.instance.onSeasonChange -= ChangeSeason;
+    }
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -98,6 +108,25 @@ public class PlayerMove : MonoBehaviour
         }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
+    }
+
+    private void ChangeSeason(Season _season)
+    {
+        season = (int)_season;
+
+        switch (season)
+        {
+            case 1: //Winter
+                break;
+            case 2://Spring
+                break;
+            case 3://Summer
+                break;
+            case 4://Fall
+                break;
+            default:
+                break;
+        }
     }
 }
 
