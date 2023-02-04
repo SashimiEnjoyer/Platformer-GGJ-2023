@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
 
     private bool doubleJump;
 
-    int season = 0; //1 = spring, 2 = summer, 3 = fall, 4 = winter
+    int season = 0; //1 = Fall, 2 = Winter, 3 = Spring, 4 = Summer
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -26,16 +26,18 @@ public class PlayerMove : MonoBehaviour
         Debug.Log(doubleJump);
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
+            animator.SetBool("IsJumping", false);
             doubleJump = false;
         }
 
         if (Input.GetButtonDown("Jump"))
         {
+            animator.SetBool("IsJumping", true);
             if (IsGrounded() || doubleJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
-                if(season == 1)
+                if(season == 2)
                 {
                     doubleJump = !doubleJump;
                 }
@@ -45,16 +47,25 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown("f"))
         {
             season = 1;
+            transform.localScale = new Vector3(0.6f, 0.6f, 0);
             seasonTxt.text = season.ToString("F0");
         }
         if (Input.GetKeyDown("g"))
         {
             season = 2;
+            transform.localScale = new Vector3(1f, 1f, 0);
             seasonTxt.text = season.ToString("F0");
         }
         if (Input.GetKeyDown("h"))
         {
             season = 3;
+            transform.localScale = new Vector3(1f, 1f, 0);
+            seasonTxt.text = season.ToString("F0");
+        }
+        if (Input.GetKeyDown("j"))
+        {
+            season = 4;
+            transform.localScale = new Vector3(1f, 1f, 0);
             seasonTxt.text = season.ToString("F0");
         }
 
@@ -86,7 +97,7 @@ public class PlayerMove : MonoBehaviour
             transform.localScale = localScale;
         }
 
-        //animator.SetFloat("Speed", Mathf.Abs(horizontal));
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
     }
 }
 
