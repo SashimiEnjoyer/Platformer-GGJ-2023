@@ -13,7 +13,6 @@ public struct Dialogue
 
 public class DialogueEntity : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Dialogue[] dialogue;
     [SerializeField] private GameObject dialogueModalUIPrefab;
     [SerializeField] private TMP_Text charaName;
     [SerializeField] private TMP_Text dialogueText;
@@ -23,10 +22,11 @@ public class DialogueEntity : MonoBehaviour, IInteractable
     private int dialogueIndex = 0;
     public bool ObjectDestroyed = false;
     public bool DialogueEnd = false;
+    [SerializeField] private Dialogue[] dialogue;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && isOpen == true && ObjectDestroyed == false)
+        if (Input.GetKeyDown(KeyCode.Return) && isOpen && !ObjectDestroyed)
         {
             NextDialogue();
         }
@@ -60,6 +60,7 @@ public class DialogueEntity : MonoBehaviour, IInteractable
         else
         {
             EndDialogue();
+            return;
         }
 
         dialogue[dialogueIndex].onCurrentDialogueEvent?.Invoke();
