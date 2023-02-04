@@ -121,6 +121,7 @@ public class PlayerMove : MonoBehaviour
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 1://Spring
+                season = 3;
                 transform.localScale = new Vector3(2f, 2f, 0);
                 break;
             case 2://Summer
@@ -128,6 +129,7 @@ public class PlayerMove : MonoBehaviour
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 3://Fall
+                season = 1;
                 transform.localScale = new Vector3(0.6f, 0.6f, 0);
                 break;
             default:
