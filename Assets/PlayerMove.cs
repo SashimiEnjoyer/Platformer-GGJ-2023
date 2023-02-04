@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
             doubleJump = false;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && season != 3)
         {
             animator.SetBool("IsJumping", true);
             if (IsGrounded() || doubleJump)
@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown("h"))
         {
             season = 3;
-            transform.localScale = new Vector3(1f, 1f, 0);
+            transform.localScale = new Vector3(2f, 2f, 0);
             seasonTxt.text = season.ToString("F0");
         }
         if (Input.GetKeyDown("j"))
