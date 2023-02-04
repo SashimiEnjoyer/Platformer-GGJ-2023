@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
 public enum GameState { Playing, Stop, Dialogue}
 
 public class InGameTracker : MonoBehaviour
