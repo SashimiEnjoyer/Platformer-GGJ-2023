@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
 
+    private bool doubleJump;
+    int season = 0; //1 = spring, 2 = summer, 3 = fall, 4 = winter
+
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;

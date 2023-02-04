@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     float currentTime = 0f, speedTime = 1f;
     public Text timerTxt;
+    int switchSpeed = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,11 @@ public class PlayerManager : MonoBehaviour
 
         if (Input.GetKeyDown("f"))
         {
-            print("space key was pressed");
+            if(switchSpeed == 1)
+            {
+
+            }
+
         }
     }
 
