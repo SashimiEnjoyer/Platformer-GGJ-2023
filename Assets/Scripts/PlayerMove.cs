@@ -11,14 +11,15 @@ public class PlayerMove : MonoBehaviour
     private bool isFacingRight = true;
     public Text seasonTxt;
 
-    private bool doubleJump, isTouching;
-    Collision2D objCollider2D;
+    public bool doubleJump, isTouching, isGrabbed;
+    Collider2D objCollider2D;
 
     int season = 0; //1 = Fall, 2 = Winter, 3 = Spring, 4 = Summer
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask platfromLayer;
     [SerializeField] private Animator animator;
 
     private void Start()
@@ -55,34 +56,17 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("e") && objCollider2D!= null && isTouching)
+        if (Input.GetKeyDown("e") && isTouching && !isGrabbed && season == 3) 
         {
-            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform);
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, true);
+            isGrabbed = true;
+        }else if(Input.GetKeyDown("e") && isGrabbed)
+        {
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, false);
+            isGrabbed = false;
+            objCollider2D = null;
         }
-        //if (Input.GetKeyDown("f"))
-        //{
-        //    season = 1;
-        //    transform.localScale = new Vector3(0.6f, 0.6f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
-        //if (Input.GetKeyDown("g"))
-        //{
-        //    season = 2;
-        //    transform.localScale = new Vector3(1f, 1f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
-        //if (Input.GetKeyDown("h"))
-        //{
-        //    season = 3;
-        //    transform.localScale = new Vector3(2f, 2f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
-        //if (Input.GetKeyDown("j"))
-        //{
-        //    season = 4;
-        //    transform.localScale = new Vector3(1f, 1f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
+
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
@@ -102,14 +86,17 @@ public class PlayerMove : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
+    private bool isPlatform()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, platfromLayer);
+    }
+
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            //Vector3 localScale = transform.localScale;
+
             isFacingRight = !isFacingRight;
-            //localScale.x *= -1f;
-            //transform.localScale = localScale;
             transform.Rotate(0, 180, 0);
 
         }
@@ -120,6 +107,13 @@ public class PlayerMove : MonoBehaviour
     private void ChangeSeason(Season _season)
     {
         season = (int)_season;
+
+        if (isGrabbed)
+        {
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, false);
+            isGrabbed = false;
+            objCollider2D = null;
+        }
 
         switch (season)
         {
@@ -156,22 +150,22 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PushedObject"))
         {
             isTouching = true;
-            Debug.Log("hitt");
             objCollider2D = collision;
         }
+
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("PushedObject"))
+        if (other.gameObject.CompareTag("PushedObject"))
         {
             isTouching = false;
-            objCollider2D = null;
+            //objCollider2D = null;
         }
     }
 }
