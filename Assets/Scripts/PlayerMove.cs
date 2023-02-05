@@ -11,7 +11,8 @@ public class PlayerMove : MonoBehaviour
     private bool isFacingRight = true;
     public Text seasonTxt;
 
-    private bool doubleJump;
+    private bool doubleJump, isTouching;
+    Collision2D objCollider2D;
 
     int season = 0; //1 = Fall, 2 = Winter, 3 = Spring, 4 = Summer
 
@@ -54,6 +55,10 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown("e") && objCollider2D!= null && isTouching)
+        {
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform);
+        }
         //if (Input.GetKeyDown("f"))
         //{
         //    season = 1;
@@ -122,26 +127,51 @@ public class PlayerMove : MonoBehaviour
                 season = 2;
                 speed = 6f;
                 animator.SetBool("isFall", false);
+                animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 1://Spring
                 season = 3;
                 speed = 4f;
+                animator.SetBool("isFall", false);
+                animator.SetBool("isSpring", true);
                 transform.localScale = new Vector3(2f, 2f, 0);
                 break;
             case 2://Summer
                 season = 2;
                 speed = 8f;
+                animator.SetBool("isFall", false);
+                animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 3://Fall
                 season = 1;
                 speed = 10f;
                 animator.SetBool("isFall", true);
+                animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(0.6f, 0.6f, 0);
                 break;
             default:
                 break;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PushedObject"))
+        {
+            isTouching = true;
+            Debug.Log("hitt");
+            objCollider2D = collision;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PushedObject"))
+        {
+            isTouching = false;
+            objCollider2D = null;
         }
     }
 }
