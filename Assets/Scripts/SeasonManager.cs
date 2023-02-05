@@ -14,6 +14,8 @@ public class SeasonManager : MonoBehaviour
     public TMP_Text seasonText;
 
     [SerializeField] private GameObject[] tilemaps;
+    [SerializeField] private ParticleSystem particle;
+    [SerializeField] private Sprite[] seasonParticleSprite;
     
     [SerializeField]private Season _season;
     private float seasonTimer;
@@ -51,12 +53,14 @@ public class SeasonManager : MonoBehaviour
     {
         onSeasonChange += ChangeTilemaps;
         onSeasonChange += ChangeSeasonUI;
+        onSeasonChange += ChangeParticle;
     }
 
     private void OnDisable()
     {
         onSeasonChange -= ChangeTilemaps;
         onSeasonChange -= ChangeSeasonUI;
+        onSeasonChange -= ChangeParticle;
     }
 
     private void Start()
@@ -77,10 +81,13 @@ public class SeasonManager : MonoBehaviour
             season = Season.Autumn;
 
 
-        seasonTimer += (Time.deltaTime * timerMultiplier);
-        seasonTimer %= seasonCooldown;
+        if (InGameTracker.instance.state == GameState.Playing)
+        {
+            seasonTimer += (Time.deltaTime * timerMultiplier);
+            testtimer.text = seasonTimer.ToString("f2");
+        }
 
-        testtimer.text = seasonTimer.ToString("f2");
+        seasonTimer %= seasonCooldown;
 
 
     }
@@ -88,6 +95,20 @@ public class SeasonManager : MonoBehaviour
     void ChangeSeasonUI(Season season)
     {
         seasonText.text = season.ToString();
+    }
+
+    void ChangeParticle(Season season)
+    {
+        particle.textureSheetAnimation.SetSprite(0, seasonParticleSprite[(int)season]);
+
+        if(season == Season.Summer)
+        {
+            particle.Stop();
+        }
+        else
+        {
+            particle.Play();
+        }
     }
 
     [ContextMenu("Test Change Season")]

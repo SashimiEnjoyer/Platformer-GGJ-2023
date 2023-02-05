@@ -9,7 +9,7 @@ public class InGameTracker : MonoBehaviour
     public static InGameTracker instance;
 
     public UnityAction<GameState> onStateChange;
-    private GameState _state;
+    [SerializeField] private GameState _state;
     public GameState state
     {
         set
