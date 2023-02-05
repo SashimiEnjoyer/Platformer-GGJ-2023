@@ -1,0 +1,824 @@
+fileFormatVersion: 2
+guid: f882a0100750b83409582ab844d5de59
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2773276316859688584
+    second: raka_autumn_animtest_0
+  - first:
+      213: 2222145578767286173
+    second: raka_autumn_animtest_1
+  - first:
+      213: 1757098280504660960
+    second: raka_autumn_animtest_2
+  - first:
+      213: -7492925511757323307
+    second: raka_autumn_animtest_3
+  - first:
+      213: 1570096880760576370
+    second: raka_autumn_animtest_4
+  - first:
+      213: 3457073904935964824
+    second: raka_autumn_animtest_5
+  - first:
+      213: -1611714919299877474
+    second: raka_autumn_animtest_6
+  - first:
+      213: 5696524876235254902
+    second: raka_autumn_animtest_7
+  - first:
+      213: -1038862741733371965
+    second: raka_autumn_animtest_8
+  - first:
+      213: -5426722003604336947
+    second: raka_autumn_animtest_9
+  - first:
+      213: 1771683106788934511
+    second: raka_autumn_animtest_10
+  - first:
+      213: 7524141980887819396
+    second: raka_autumn_animtest_11
+  - first:
+      213: 143947792028381698
+    second: raka_autumn_animtest_12
+  - first:
+      213: -6066612490858541780
+    second: raka_autumn_animtest_13
+  - first:
+      213: -125119984211573802
+    second: raka_autumn_animtest_14
+  - first:
+      213: 1547787508302682786
+    second: raka_autumn_animtest_15
+  - first:
+      213: -6787121384059033648
+    second: raka_autumn_animtest_16
+  - first:
+      213: -3479557407507018725
+    second: raka_autumn_animtest_17
+  - first:
+      213: -6838359202487204312
+    second: raka_autumn_animtest_18
+  - first:
+      213: -5839309234070526511
+    second: raka_autumn_animtest_19
+  - first:
+      213: 3785501947518167107
+    second: raka_autumn_animtest_20
+  - first:
+      213: 2596225373286205656
+    second: raka_autumn_animtest_21
+  - first:
+      213: -7246295524707901904
+    second: raka_autumn_animtest_22
+  - first:
+      213: -2099609974701959515
+    second: raka_autumn_animtest_23
+  - first:
+      213: 1070662679243507815
+    second: raka_autumn_animtest_24
+  - first:
+      213: -3786241119469095445
+    second: raka_autumn_animtest_25
+  - first:
+      213: -1106116011537957411
+    second: raka_autumn_animtest_26
+  - first:
+      213: -8287020039134989248
+    second: raka_autumn_animtest_27
+  - first:
+      213: -5919750385532256460
+    second: raka_autumn_animtest_28
+  - first:
+      213: 6914622401309196125
+    second: raka_autumn_animtest_29
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: raka_autumn_animtest_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 424
+        width: 203
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879139d12e75389d0800000000000000
+      internalID: -2773276316859688584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_1
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 424
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ff0a561a5a6de10800000000000000
+      internalID: 2222145578767286173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_2
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 423
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e31eec9397726810800000000000000
+      internalID: 1757098280504660960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_3
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 424
+        width: 203
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d32e3f32f7c30890800000000000000
+      internalID: -7492925511757323307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_4
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 424
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279dea85bca1ac510800000000000000
+      internalID: 1570096880760576370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_5
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 424
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8901bf1766ef9ff20800000000000000
+      internalID: 3457073904935964824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_6
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 423
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e95fee3f1d902a9e0800000000000000
+      internalID: -1611714919299877474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_7
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 424
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67cad26813f1e0f40800000000000000
+      internalID: 5696524876235254902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_8
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 424
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf089c27d73591f0800000000000000
+      internalID: -1038862741733371965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_9
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 424
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce0e58f61960b4b0800000000000000
+      internalID: -5426722003604336947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 214
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6307ba1668469810800000000000000
+      internalID: 1771683106788934511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_11
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 215
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4842c6a544f1b6860800000000000000
+      internalID: 7524141980887819396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_12
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 214
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 202bd0211c76ff100800000000000000
+      internalID: 143947792028381698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_13
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 214
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2dcd64f4101fcba0800000000000000
+      internalID: -6066612490858541780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_14
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 214
+        width: 205
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d344ca890c734ef0800000000000000
+      internalID: -125119984211573802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_15
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 215
+        width: 203
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa1b2cc988da7510800000000000000
+      internalID: 1547787508302682786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_16
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 214
+        width: 205
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d724b79f0d4fc1a0800000000000000
+      internalID: -6787121384059033648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_17
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 215
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c07fd29f026bfc0800000000000000
+      internalID: -3479557407507018725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_18
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 213
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8260a3959844911a0800000000000000
+      internalID: -6838359202487204312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_19
+      rect:
+        serializedVersion: 2
+        x: 1892
+        y: 213
+        width: 203
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d56199803b96fea0800000000000000
+      internalID: -5839309234070526511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_20
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 4
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348ae5ef6fdc88430800000000000000
+      internalID: 3785501947518167107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_21
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 5
+        width: 203
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8849bb835a70420800000000000000
+      internalID: 2596225373286205656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_22
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 4
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e5840ec9cff6b90800000000000000
+      internalID: -7246295524707901904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_23
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 4
+        width: 204
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6d50b2adfacd2e0800000000000000
+      internalID: -2099609974701959515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_24
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 5
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768c39eb802cbde00800000000000000
+      internalID: 1070662679243507815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_25
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 5
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5311023c1947bc0800000000000000
+      internalID: -3786241119469095445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_26
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 4
+        width: 203
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd78e3195946a0f0800000000000000
+      internalID: -1106116011537957411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_27
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 4
+        width: 203
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044b0d05e279efc80800000000000000
+      internalID: -8287020039134989248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_28
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 4
+        width: 204
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f3e577362d8dda0800000000000000
+      internalID: -5919750385532256460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: raka_autumn_animtest_29
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 4
+        width: 205
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f3ef1507ca5ff50800000000000000
+      internalID: 6914622401309196125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
