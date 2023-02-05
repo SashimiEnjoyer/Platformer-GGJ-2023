@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool doubleJump, isTouching, isGrabbed;
     Collider2D objCollider2D;
+    bool isStop = false;
 
     int season = 0; //1 = Fall, 2 = Winter, 3 = Spring, 4 = Summer
 
@@ -25,15 +26,20 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         SeasonManager.instance.onSeasonChange += ChangeSeason;
+        InGameTracker.instance.onStateChange += ChangeState;
     }
 
     private void OnDisable()
     {
         SeasonManager.instance.onSeasonChange -= ChangeSeason;
+        InGameTracker.instance.onStateChange -= ChangeState;
     }
 
     void Update()
     {
+        if (isStop)
+            return;
+
         horizontal = Input.GetAxisRaw("Horizontal");
         Debug.Log(doubleJump);
         if (IsGrounded() && !Input.GetButton("Jump"))
@@ -144,6 +150,21 @@ public class PlayerMove : MonoBehaviour
                 animator.SetBool("isFall", true);
                 animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(0.6f, 0.6f, 0);
+                break;
+            default:
+                break;
+        }
+    }
+
+    void ChangeState(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Playing:
+                isStop = false;
+                break;
+            case GameState.Dialogue:
+                isStop=true;
                 break;
             default:
                 break;
