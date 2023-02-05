@@ -37,6 +37,7 @@ public class Opening : MonoBehaviour
 
     public void EndingDialogue(int endingIndex)
     {
+        InGameTracker.instance.state = GameState.Dialogue;
         endingCanvas[endingIndex].SetActive(true);
         endingCanvas[endingIndex].GetComponent<Image>().sprite = endingSprite[endingIndex];
         CanvasGroup cg = endingCanvas[endingIndex].GetComponent<CanvasGroup>();

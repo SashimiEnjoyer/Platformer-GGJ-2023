@@ -89,7 +89,7 @@ public class DialogueEntity : MonoBehaviour, IInteractable
         dialogueModalUIPrefab.SetActive(false);
         ObjectDestroyed = true;
         DialogueEnd = true;
-        InGameTracker.instance.state = GameState.Dialogue;
+        InGameTracker.instance.state = GameState.Playing;
         dialogueIndex = 0;
     }
 }

@@ -38,7 +38,11 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         if (isStop)
+        {
+            horizontal = 0;
+            rb.velocity = Vector2.zero;
             return;
+        }
 
         horizontal = Input.GetAxisRaw("Horizontal");
         Debug.Log(doubleJump);
