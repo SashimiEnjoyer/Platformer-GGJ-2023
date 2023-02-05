@@ -81,10 +81,13 @@ public class SeasonManager : MonoBehaviour
             season = Season.Autumn;
 
 
-        seasonTimer += (Time.deltaTime * timerMultiplier);
-        seasonTimer %= seasonCooldown;
+        if (InGameTracker.instance.state == GameState.Playing)
+        {
+            seasonTimer += (Time.deltaTime * timerMultiplier);
+            testtimer.text = seasonTimer.ToString("f2");
+        }
 
-        testtimer.text = seasonTimer.ToString("f2");
+        seasonTimer %= seasonCooldown;
 
 
     }

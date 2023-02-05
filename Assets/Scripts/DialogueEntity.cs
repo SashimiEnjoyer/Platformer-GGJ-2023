@@ -49,8 +49,11 @@ public class DialogueEntity : MonoBehaviour, IInteractable
 
     private void SetDialogueUI(Dialogue dialogue)
     {
-        charaName.text = dialogue.name;
+        
         dialogueText.text = dialogue.dialogueText;
+        
+        charaName.text = dialogue.name;
+    
     }
 
     public void NextDialogue()
