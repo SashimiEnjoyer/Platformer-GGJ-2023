@@ -6,11 +6,11 @@ Our Game Title: "The Great Adventure of Raka"
 
 Link for the GGJ site: [The Great Adventure of Raka](https://globalgamejam.org/2023/games/great-adventure-raka-8)
 
-====================================================================================================================
+================================================================
 
-Credits: 
+# Credits: 
 
-'Me' - Programmer
+Faris Pradiatma - Programmer [Me :)]
 
 Handy Goandy - Programmer
 
@@ -25,6 +25,6 @@ Joshua Jonathan - Story
 Pray Cristanto - Game Design
 
 
-====================================================
+================================================================
 
 This project will likely be modified. For original project GGJ, you can check GGJ-Original-2023 branch
