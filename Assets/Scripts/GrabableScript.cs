@@ -5,10 +5,8 @@ using UnityEngine;
 public class GrabableScript : MonoBehaviour
 {
     private bool isGrabbed = false;
-    public void ExecuteInteractable(Transform player)
+    public void ExecuteInteractable(Transform player, bool isGrabbed)
     {
-        isGrabbed = !isGrabbed;
-
         transform.parent = isGrabbed ? player : null;
     }
 }

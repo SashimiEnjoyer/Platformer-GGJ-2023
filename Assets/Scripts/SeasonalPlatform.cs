@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class SeasonalPlatform : MonoBehaviour
 {
+    public bool playerStick = false;
 
     [SerializeField] bool isHorizontal = true;
     [SerializeField] float verticalHeight;
     [SerializeField] float horizontalMove;
     [SerializeField] float moveTimer = 1;
     [SerializeField] Season platformSeason;
+    [SerializeField] Season offPlatformSeason;
 
     bool isReset = false;
 
@@ -31,37 +33,16 @@ public class SeasonalPlatform : MonoBehaviour
             DoMovePlatfrom();
             isReset = true;
         }
-        else
+        else if(_season == offPlatformSeason)
         {
+            DoResetPlatfrom();
+
             if (isReset)
             {
-                DoResetPlatfrom();
                 isReset = false;
             }
         }
 
-
-            switch (_season)
-        {
-            case Season.Winter:
-                Debug.Log(_season.ToString());
-                DoMovePlatfrom();
-                break;
-            case Season.Spring:
-                Debug.Log(_season.ToString());
-                DoMovePlatfrom();
-                break;
-            case Season.Summer:
-                Debug.Log(_season.ToString());
-                DoMovePlatfrom();
-                break;
-            case Season.Autumn:
-                Debug.Log(_season.ToString());
-                DoMovePlatfrom();
-                break;
-            default:
-                break;
-        }
     }
 
     void DoMovePlatfrom()
@@ -75,5 +56,21 @@ public class SeasonalPlatform : MonoBehaviour
     {
         transform.DOMove((isHorizontal ? new Vector2(transform.position.x + -horizontalMove, transform.position.y) :
             new Vector2(transform.position.x, transform.position.y + -verticalHeight)), moveTimer);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player") && playerStick)
+        {
+            collision.transform.parent = transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && playerStick)
+        {
+            collision.transform.parent = null;
+        }
     }
 }

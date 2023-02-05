@@ -11,27 +11,35 @@ public class PlayerMove : MonoBehaviour
     private bool isFacingRight = true;
     public Text seasonTxt;
 
-    private bool doubleJump;
+    public bool doubleJump, isTouching, isGrabbed;
+    Collider2D objCollider2D;
+    bool isStop = false;
 
     int season = 0; //1 = Fall, 2 = Winter, 3 = Spring, 4 = Summer
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask platfromLayer;
     [SerializeField] private Animator animator;
 
     private void Start()
     {
         SeasonManager.instance.onSeasonChange += ChangeSeason;
+        InGameTracker.instance.onStateChange += ChangeState;
     }
 
     private void OnDisable()
     {
         SeasonManager.instance.onSeasonChange -= ChangeSeason;
+        InGameTracker.instance.onStateChange -= ChangeState;
     }
 
     void Update()
     {
+        if (isStop)
+            return;
+
         horizontal = Input.GetAxisRaw("Horizontal");
         Debug.Log(doubleJump);
         if (IsGrounded() && !Input.GetButton("Jump"))
@@ -54,30 +62,17 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        //if (Input.GetKeyDown("f"))
-        //{
-        //    season = 1;
-        //    transform.localScale = new Vector3(0.6f, 0.6f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
-        //if (Input.GetKeyDown("g"))
-        //{
-        //    season = 2;
-        //    transform.localScale = new Vector3(1f, 1f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
-        //if (Input.GetKeyDown("h"))
-        //{
-        //    season = 3;
-        //    transform.localScale = new Vector3(2f, 2f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
-        //if (Input.GetKeyDown("j"))
-        //{
-        //    season = 4;
-        //    transform.localScale = new Vector3(1f, 1f, 0);
-        //    seasonTxt.text = season.ToString("F0");
-        //}
+        if (Input.GetKeyDown("e") && isTouching && !isGrabbed && season == 3) 
+        {
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, true);
+            isGrabbed = true;
+        }else if(Input.GetKeyDown("e") && isGrabbed)
+        {
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, false);
+            isGrabbed = false;
+            objCollider2D = null;
+        }
+
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
@@ -97,14 +92,17 @@ public class PlayerMove : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
+    private bool isPlatform()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, platfromLayer);
+    }
+
     private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            //Vector3 localScale = transform.localScale;
+
             isFacingRight = !isFacingRight;
-            //localScale.x *= -1f;
-            //transform.localScale = localScale;
             transform.Rotate(0, 180, 0);
 
         }
@@ -116,32 +114,79 @@ public class PlayerMove : MonoBehaviour
     {
         season = (int)_season;
 
+        if (isGrabbed)
+        {
+            objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, false);
+            isGrabbed = false;
+            objCollider2D = null;
+        }
+
         switch (season)
         {
             case 0: //Winter
                 season = 2;
                 speed = 6f;
                 animator.SetBool("isFall", false);
+                animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 1://Spring
                 season = 3;
                 speed = 4f;
+                animator.SetBool("isFall", false);
+                animator.SetBool("isSpring", true);
                 transform.localScale = new Vector3(2f, 2f, 0);
                 break;
             case 2://Summer
                 season = 2;
                 speed = 8f;
+                animator.SetBool("isFall", false);
+                animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 3://Fall
                 season = 1;
                 speed = 10f;
                 animator.SetBool("isFall", true);
+                animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(0.6f, 0.6f, 0);
                 break;
             default:
                 break;
+        }
+    }
+
+    void ChangeState(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Playing:
+                isStop = false;
+                break;
+            case GameState.Dialogue:
+                isStop=true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PushedObject"))
+        {
+            isTouching = true;
+            objCollider2D = collision;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("PushedObject"))
+        {
+            isTouching = false;
+            //objCollider2D = null;
         }
     }
 }
