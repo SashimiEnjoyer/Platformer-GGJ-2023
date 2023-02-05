@@ -101,10 +101,12 @@ public class PlayerMove : MonoBehaviour
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-            Vector3 localScale = transform.localScale;
+            //Vector3 localScale = transform.localScale;
             isFacingRight = !isFacingRight;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            //localScale.x *= -1f;
+            //transform.localScale = localScale;
+            transform.Rotate(0, 180, 0);
+
         }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
