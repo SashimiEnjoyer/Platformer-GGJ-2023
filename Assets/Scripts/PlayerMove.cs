@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingPower = 18f;
+    private float jumpingPower = 16f;
     private bool isFacingRight = true;
     public Text seasonTxt;
 

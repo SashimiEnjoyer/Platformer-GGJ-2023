@@ -122,11 +122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seasonTxt: {fileID: 0}
+  doubleJump: 0
+  isTouching: 0
+  isGrabbed: 0
   rb: {fileID: 6273020772409936237}
   groundCheck: {fileID: 6273020772422288354}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5120
+  platfromLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   animator: {fileID: 6273020772409936238}
 --- !u!95 &6273020772409936238
 Animator:
