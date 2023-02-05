@@ -23,3 +23,8 @@ Tabitha Christina - 2D Artist
 Joshua Jonathan - Story
 
 Pray Cristanto - Game Design
+
+
+====================================================
+
+This project will likely be modified. For original project GGJ, you can check GGJ-Original-2023 branch
