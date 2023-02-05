@@ -71,20 +71,20 @@ public class SeasonManager : MonoBehaviour
     public void Update()
     {
 
-        if (seasonTimer > 0 && seasonTimer < 4)
+        if (seasonTimer > 0 && seasonTimer < 12)
             season = Season.Winter;
-        else if (seasonTimer > 4 && seasonTimer < 8)
+        else if (seasonTimer > 12 && seasonTimer < 24)
             season = Season.Spring;
-        else if (seasonTimer > 8 && seasonTimer < 12)
+        else if (seasonTimer > 24 && seasonTimer < 36)
             season = Season.Summer;
-        else if (seasonTimer > 12 && seasonTimer < 16)
+        else if (seasonTimer > 36 && seasonTimer < 48)
             season = Season.Autumn;
 
 
         if (InGameTracker.instance.state == GameState.Playing)
         {
             seasonTimer += (Time.deltaTime * timerMultiplier);
-            testtimer.text = seasonTimer.ToString("f2");
+            testtimer.text = seasonTimer.ToString("f1");
         }
 
         seasonTimer %= seasonCooldown;
