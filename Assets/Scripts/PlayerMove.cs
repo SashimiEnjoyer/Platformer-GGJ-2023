@@ -37,6 +37,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
         if (isStop)
         {
             horizontal = 0;
@@ -110,8 +112,6 @@ public class PlayerMove : MonoBehaviour
             transform.Rotate(0, 180, 0);
 
         }
-
-        animator.SetFloat("Speed", Mathf.Abs(horizontal));
     }
 
     private void ChangeSeason(Season _season)

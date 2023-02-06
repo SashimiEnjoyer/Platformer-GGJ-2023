@@ -47,7 +47,7 @@ public class Opening : MonoBehaviour
         DOTween.To(() => cg.alpha, x => cg.alpha = x, 1, 1f).SetEase(Ease.Linear).OnComplete(() =>
         {
             endingDialogue[endingIndex].ExecuteInteractable();
-            InGameTracker.instance.state = GameState.Dialogue;
+            InGameTracker.instance.state = GameState.Stop;
             
         });
     }
