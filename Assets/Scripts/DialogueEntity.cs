@@ -21,13 +21,23 @@ public class DialogueEntity : MonoBehaviour, IInteractable
     public bool isOpen = false;
     private int dialogueIndex = 0;
     public bool ObjectDestroyed = false;
-    public bool DialogueEnd = false;
     public bool isChoice = false;
+    private bool isGameStop = false;
     [SerializeField] private Dialogue[] dialogue;
+
+    private void Start()
+    {
+        InGameTracker.instance.onStateChange += CheckGameState;
+    }
+
+    private void OnDisable()
+    {
+        InGameTracker.instance.onStateChange -= CheckGameState;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && isOpen && !ObjectDestroyed && !isChoice)
+        if (Input.GetKeyDown(KeyCode.Return) && isOpen && !ObjectDestroyed && !isChoice && !isGameStop)
         {
             NextDialogue();
         }
@@ -88,8 +98,21 @@ public class DialogueEntity : MonoBehaviour, IInteractable
     {
         dialogueModalUIPrefab.SetActive(false);
         ObjectDestroyed = true;
-        DialogueEnd = true;
         InGameTracker.instance.state = GameState.Playing;
         dialogueIndex = 0;
+    }
+
+    void CheckGameState(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Stop:
+                isGameStop = true;
+                break;
+            case GameState.Playing:
+            case GameState.Dialogue:
+                isGameStop = false;
+                break;
+        }
     }
 }

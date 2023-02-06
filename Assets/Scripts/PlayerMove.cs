@@ -167,6 +167,7 @@ public class PlayerMove : MonoBehaviour
             case GameState.Playing:
                 isStop = false;
                 break;
+            case GameState.Stop:
             case GameState.Dialogue:
                 isStop=true;
                 break;

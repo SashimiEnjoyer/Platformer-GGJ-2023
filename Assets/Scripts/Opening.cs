@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Opening : MonoBehaviour
 {
@@ -37,9 +38,10 @@ public class Opening : MonoBehaviour
 
     public void EndingDialogue(int endingIndex)
     {
-        InGameTracker.instance.state = GameState.Dialogue;
+        InGameTracker.instance.state = GameState.Stop;
         endingCanvas[endingIndex].SetActive(true);
         endingCanvas[endingIndex].GetComponent<Image>().sprite = endingSprite[endingIndex];
+        endingCanvas[endingIndex].GetComponentInChildren<Button>().onClick.AddListener(GoToMainMenu);
         CanvasGroup cg = endingCanvas[endingIndex].GetComponent<CanvasGroup>();
 
         DOTween.To(() => cg.alpha, x => cg.alpha = x, 1, 1f).SetEase(Ease.Linear).OnComplete(() =>
@@ -48,5 +50,10 @@ public class Opening : MonoBehaviour
             InGameTracker.instance.state = GameState.Dialogue;
             
         });
+    }
+
+    void GoToMainMenu()
+    {
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 }
