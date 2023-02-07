@@ -47,7 +47,6 @@ public class PlayerMove : MonoBehaviour
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        Debug.Log(doubleJump);
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
             animator.SetBool("IsJumping", false);

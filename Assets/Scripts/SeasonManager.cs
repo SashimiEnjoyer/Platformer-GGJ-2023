@@ -1,7 +1,9 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.PostProcessing;
 
 [Serializable]
 public enum Season { Winter, Spring, Summer, Autumn}
@@ -16,8 +18,10 @@ public class SeasonManager : MonoBehaviour
     [SerializeField] private GameObject[] tilemaps;
     [SerializeField] private ParticleSystem particle;
     [SerializeField] private Sprite[] seasonParticleSprite;
+    [SerializeField] private PostProcessVolume[] volume;
     
     [SerializeField]private Season _season;
+    private Season lastSeason = Season.Autumn;
     private float seasonTimer;
     public float timerMultiplier = 1;
     [SerializeField] private float seasonCooldown;
@@ -29,6 +33,7 @@ public class SeasonManager : MonoBehaviour
             if (value == _season)
                 return;
 
+            lastSeason = _season;
             _season = value;
             seasonTimer = seasonCooldown * ((float)_season / Enum.GetNames(typeof(Season)).Length);
             onSeasonChange?.Invoke(value);
@@ -54,6 +59,7 @@ public class SeasonManager : MonoBehaviour
         onSeasonChange += ChangeTilemaps;
         onSeasonChange += ChangeSeasonUI;
         onSeasonChange += ChangeParticle;
+        onSeasonChange += ChangePostProVolume;
     }
 
     private void OnDisable()
@@ -61,6 +67,7 @@ public class SeasonManager : MonoBehaviour
         onSeasonChange -= ChangeTilemaps;
         onSeasonChange -= ChangeSeasonUI;
         onSeasonChange -= ChangeParticle;
+        onSeasonChange -= ChangePostProVolume;
     }
 
     private void Start()
@@ -120,5 +127,14 @@ public class SeasonManager : MonoBehaviour
         }
 
         tilemaps[(int)season].SetActive(true);
+    }
+
+    void ChangePostProVolume(Season season)
+    {
+        int lastSeason = ((int)season - 1);
+        lastSeason += (lastSeason < 0 ? 4 : 0);
+        Debug.Log("Last season int: " + lastSeason);
+        DOTween.To(() => volume[(int)season].weight, x => volume[(int)season].weight = x, 1f, 1);
+        DOTween.To(() => volume[lastSeason].weight, x => volume[lastSeason].weight = x, 0, 1);
     }
 }
