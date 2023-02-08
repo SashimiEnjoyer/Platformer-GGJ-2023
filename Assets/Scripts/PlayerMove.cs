@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     Collider2D objCollider2D;
     bool isStop = false;
 
-    int season = 0; //1 = Fall, 2 = Winter, 3 = Spring, 4 = Summer
+    int season = 0;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -53,21 +53,21 @@ public class PlayerMove : MonoBehaviour
             doubleJump = false;
         }
 
-        if (Input.GetButtonDown("Jump") && season != 3)
+        if (Input.GetButtonDown("Jump") && season != 1)
         {
             animator.SetBool("IsJumping", true);
             if (IsGrounded() || doubleJump)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
-                if(season == 2)
+                if(season == 0 || season == 2)
                 {
                     doubleJump = !doubleJump;
                 }
             }
         }
 
-        if (Input.GetKeyDown("e") && isTouching && !isGrabbed && season == 3) 
+        if (Input.GetKeyDown("e") && isTouching && !isGrabbed && season == 1) 
         {
             objCollider2D.gameObject.GetComponent<GrabableScript>().ExecuteInteractable(transform, true);
             isGrabbed = true;
@@ -127,28 +127,24 @@ public class PlayerMove : MonoBehaviour
         switch (season)
         {
             case 0: //Winter
-                season = 2;
                 speed = 6f;
                 animator.SetBool("isFall", false);
                 animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 1://Spring
-                season = 3;
                 speed = 4f;
                 animator.SetBool("isFall", false);
                 animator.SetBool("isSpring", true);
                 transform.localScale = new Vector3(2f, 2f, 0);
                 break;
             case 2://Summer
-                season = 2;
                 speed = 8f;
                 animator.SetBool("isFall", false);
                 animator.SetBool("isSpring", false);
                 transform.localScale = new Vector3(1f, 1f, 0);
                 break;
             case 3://Fall
-                season = 1;
                 speed = 10f;
                 animator.SetBool("isFall", true);
                 animator.SetBool("isSpring", false);

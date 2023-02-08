@@ -133,7 +133,6 @@ public class SeasonManager : MonoBehaviour
     {
         int lastSeason = ((int)season - 1);
         lastSeason += (lastSeason < 0 ? 4 : 0);
-        Debug.Log("Last season int: " + lastSeason);
         DOTween.To(() => volume[(int)season].weight, x => volume[(int)season].weight = x, 1f, 1);
         DOTween.To(() => volume[lastSeason].weight, x => volume[lastSeason].weight = x, 0, 1);
     }
