@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
+    private float speed = 5f;
+    private float jumpingPower = 11.7f;
     private bool isFacingRight = true;
     public Text seasonTxt;
 
