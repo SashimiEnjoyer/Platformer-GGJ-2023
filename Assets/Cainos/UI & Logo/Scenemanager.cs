@@ -8,6 +8,11 @@ public class Scenemanager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
